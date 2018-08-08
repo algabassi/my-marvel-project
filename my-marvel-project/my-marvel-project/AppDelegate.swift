@@ -13,9 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+//        print("urlCharacters\(urlCharacters)")
+//
+//        gCharactersRequests.getCharactersList( completionHandler: { (success) -> Void in
+//            if success {
+//                DispatchQueue.main.async(execute: {
+//                    if success {
+//                        flagCharactersListLoadSuccess = true
+//                    }
+//                })
+//            }
+//        })
+
         return true
     }
 

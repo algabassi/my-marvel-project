@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,154 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="my_marvel_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="MainView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cr0-0X-0xZ">
+                                <rect key="frame" x="16" y="131" width="343" height="516"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="516" id="B1p-27-CrY"/>
+                                    <constraint firstAttribute="width" constant="343" id="neG-7Z-cpm"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ulT-CX-TzF"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="IbS-gD-Hc7"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando a lista \ndos melhores heróis do mundo!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmw-Ut-muh">
+                                <rect key="frame" x="16" y="67" width="343" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="5nz-Zx-aww"/>
+                                    <constraint firstAttribute="height" constant="56" id="O0C-ds-amN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoMarvel" translatesAutoresizingMaskIntoConstraints="NO" id="jsX-g5-Ush">
+                                <rect key="frame" x="112" y="20" width="150" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="Nm6-tf-CHI"/>
+                                    <constraint firstAttribute="width" constant="150" id="W73-JF-yG3"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jsX-g5-Ush" secondAttribute="trailing" constant="113" id="69y-S2-5vy"/>
+                            <constraint firstItem="jsX-g5-Ush" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="C0h-mN-Lzr"/>
+                            <constraint firstItem="Cr0-0X-0xZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="M0A-B2-Qgk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cr0-0X-0xZ" secondAttribute="trailing" constant="16" id="QDL-RC-04N"/>
+                            <constraint firstItem="hmw-Ut-muh" firstAttribute="top" secondItem="jsX-g5-Ush" secondAttribute="bottom" constant="8" id="S9O-Fw-ICF"/>
+                            <constraint firstItem="jsX-g5-Ush" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="WAh-EI-Py2"/>
+                            <constraint firstItem="Cr0-0X-0xZ" firstAttribute="top" secondItem="hmw-Ut-muh" secondAttribute="bottom" constant="8" id="fRS-8I-4FU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hmw-Ut-muh" secondAttribute="trailing" constant="16" id="gQc-AV-7bZ"/>
+                            <constraint firstItem="hmw-Ut-muh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nqr-Ng-2hz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cr0-0X-0xZ" secondAttribute="bottom" constant="20" id="vrY-aT-Jf9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="charactersTableView" destination="Cr0-0X-0xZ" id="rEy-ay-132"/>
+                        <outlet property="lblTitleMessage" destination="hmw-Ut-muh" id="2gB-O4-TFL"/>
+                        <segue destination="JMQ-Of-DWq" kind="show" identifier="detailView" id="38F-rE-jRT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="108.39580209895054"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="pUq-fz-B6H">
+            <objects>
+                <viewController id="JMQ-Of-DWq" customClass="DetailViewController" customModule="my_marvel_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleAspectFit" id="MdQ-cP-MJa" userLabel="MainView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoMarvel" translatesAutoresizingMaskIntoConstraints="NO" id="qLw-ES-Y1B">
+                                <rect key="frame" x="112" y="20" width="150" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="fCk-ZA-0gn"/>
+                                    <constraint firstAttribute="width" constant="150" id="lnh-Ze-CgE"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Bi-AN-SnU">
+                                <rect key="frame" x="16" y="24" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Y1F-JG-TdG"/>
+                                    <constraint firstAttribute="height" constant="30" id="oOa-S2-TiJ"/>
+                                </constraints>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="cmdBack:" destination="JMQ-Of-DWq" eventType="touchUpInside" id="Bu3-sF-MAt"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="At5-Zj-Meo">
+                                <rect key="frame" x="67" y="79" width="240" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="3df-YV-oDP"/>
+                                    <constraint firstAttribute="height" constant="80" id="bqA-nU-uL0"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="bzb-No-hs5">
+                                <rect key="frame" x="16" y="247" width="343" height="400"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="QMj-vw-ERv"/>
+                                    <constraint firstAttribute="width" constant="343" id="oU8-hJ-sbi"/>
+                                </constraints>
+                                <color key="textColor" red="0.24130771148751706" green="1" blue="0.95835817004578616" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JnA-WU-ZbG">
+                                <rect key="frame" x="16" y="180" width="343" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="Rpo-U0-Hum"/>
+                                    <constraint firstAttribute="width" constant="343" id="pMV-zg-nKz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.27719725849999999" green="0.31832922899999999" blue="0.36849817629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="At5-Zj-Meo" firstAttribute="top" secondItem="qLw-ES-Y1B" secondAttribute="bottom" constant="20" id="2Wm-MU-Bqd"/>
+                            <constraint firstItem="2DD-FB-hbM" firstAttribute="trailing" secondItem="At5-Zj-Meo" secondAttribute="trailing" constant="68" id="A4M-Xe-kum"/>
+                            <constraint firstItem="2DD-FB-hbM" firstAttribute="trailing" secondItem="bzb-No-hs5" secondAttribute="trailing" constant="16" id="Lnz-8q-4YJ"/>
+                            <constraint firstItem="bzb-No-hs5" firstAttribute="leading" secondItem="2DD-FB-hbM" secondAttribute="leading" constant="16" id="RRD-cn-x9s"/>
+                            <constraint firstItem="0Bi-AN-SnU" firstAttribute="leading" secondItem="2DD-FB-hbM" secondAttribute="leading" constant="16" id="SDb-kw-lhM"/>
+                            <constraint firstItem="2DD-FB-hbM" firstAttribute="bottom" secondItem="bzb-No-hs5" secondAttribute="bottom" constant="20" id="Tud-wX-K63"/>
+                            <constraint firstItem="2DD-FB-hbM" firstAttribute="trailing" secondItem="qLw-ES-Y1B" secondAttribute="trailing" constant="113" id="cvZ-kP-2Om"/>
+                            <constraint firstItem="At5-Zj-Meo" firstAttribute="leading" secondItem="2DD-FB-hbM" secondAttribute="leading" constant="67" id="eH2-JR-X9H"/>
+                            <constraint firstItem="2DD-FB-hbM" firstAttribute="trailing" secondItem="JnA-WU-ZbG" secondAttribute="trailing" constant="16" id="eqS-Vr-YR0"/>
+                            <constraint firstItem="0Bi-AN-SnU" firstAttribute="top" secondItem="2DD-FB-hbM" secondAttribute="top" constant="4" id="hhN-vp-Bgk"/>
+                            <constraint firstItem="JnA-WU-ZbG" firstAttribute="leading" secondItem="2DD-FB-hbM" secondAttribute="leading" constant="16" id="laZ-0P-bv9"/>
+                            <constraint firstItem="qLw-ES-Y1B" firstAttribute="top" secondItem="2DD-FB-hbM" secondAttribute="top" id="m27-op-SfX"/>
+                            <constraint firstItem="bzb-No-hs5" firstAttribute="top" secondItem="JnA-WU-ZbG" secondAttribute="bottom" constant="8" id="mgt-b8-2Gl"/>
+                            <constraint firstItem="JnA-WU-ZbG" firstAttribute="top" secondItem="At5-Zj-Meo" secondAttribute="bottom" constant="21" id="vri-3e-GGd"/>
+                            <constraint firstItem="qLw-ES-Y1B" firstAttribute="leading" secondItem="0Bi-AN-SnU" secondAttribute="trailing" constant="66" id="zlA-X0-BtP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2DD-FB-hbM"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgComic" destination="At5-Zj-Meo" id="rlk-78-B2W"/>
+                        <outlet property="lblTitle" destination="JnA-WU-ZbG" id="Z9F-Hf-Asm"/>
+                        <outlet property="txtDescription" destination="bzb-No-hs5" id="bQW-na-FZs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSd-rW-bSV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1068" y="107.49625187406298"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="512" height="512"/>
+        <image name="logoMarvel" width="133" height="54"/>
+    </resources>
 </document>
