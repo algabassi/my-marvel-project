@@ -49,18 +49,12 @@ class DetailViewController: UIViewController {
 extension DetailViewController {
     
     func getMarvelDetailInfo() {
-        print("DetailViewController: 1")
 
         gCharactersRequests.getCharactersDetail(idCharacter: idDetailCard, completionHandler: { (success) -> Void in
-            print("DetailViewController: 2")
             if success {
-                print("DetailViewController: 3")
                 if gCharactersComicData.statusComicReturn == "OK" {
-                    print("DetailViewController: 4")
                     gCharactersRequests.getCharactersComicItem(urlComicItem:gCharactersComicData.comicUrl!, completionHandler: { (success) -> Void in
-                        print("DetailViewController: 5")
                         if success {
-                            print("DetailViewController: 6")
                             DispatchQueue.main.async(execute: {
                                 if charactersComicList.charactersComicListArray.count > 0 {                                    
                                     let strImageName = gCharactersComicData.thumbnail! + "/standard_fantastic.jpg"
@@ -74,8 +68,6 @@ extension DetailViewController {
                         }
                     })
                 } else {
-                    print("DetailViewController: 7")
-
                     DispatchQueue.main.async(execute: {
                         self.activityIndicator.removeFromSuperview()
                         self.lblTitle.text = gCharactersComicData.statusComicReturn

@@ -91,34 +91,25 @@ class wsRequests {
                             "ts":"1",
                             "hash":"f967923ee6ff6aeab0ff03832144593f"] as [String : String]
 
-            print("getCharactersDetail: 1")
-
             Just.get( url, params:params )
             { r in
-                print("getCharactersDetail: 2")
                 if r.ok
                 {
-                    print("getCharactersDetail: 3")
                     let jsonCharsData = JSON(r.json!)
                     
                     if jsonCharsData["data"]["results"].exists() {
-                        print("getCharactersDetail: 4")
                         let resultCount = jsonCharsData["data"]["count"].intValue
                         if resultCount > 0
                         {
-                            print("getCharactersDetail: 5")
                             for (_, charsInfo) in jsonCharsData["data"]["results"] {
                                 
-                                print("getCharactersDetail: 6")
                                 gCharactersComicData = CharactersComicData()
                                 if charsInfo["comics"].exists() {
                                     if charsInfo["comics"]["available"].exists()
                                         && charsInfo["comics"]["available"]>0{
                                         if charsInfo["comics"]["items"].exists() {
                                             for ( index, comicItensInfo) in charsInfo["comics"]["items"] {
-                                                print("getCharactersDetail: 7")
                                                 if index == "0" {
-                                                    print("getCharactersDetail: 8")
                                                     gCharactersComicData.comicUrl = comicItensInfo["resourceURI"].object as? String
                                                     gCharactersComicData.statusComicReturn = "OK"
                                                     break
@@ -126,21 +117,17 @@ class wsRequests {
                                             }
                                         }
                                     } else {
-                                        print("getCharactersDetail: 9")
                                         gCharactersComicData.statusComicReturn = "Comic results not found!"
                                     }
                                 }
                             }
                             if (gCharactersComicData.comicUrl?.count)! > 0 {
-                                print("getCharactersDetail: 10")
                                 completionHandler(true)
                             } else {
-                                print("getCharactersDetail: 11")
                                 completionHandler(false)
                             }
                         }
                     } else {
-                        print("getCharactersDetail: 12")
                         completionHandler(false)
                     }
                 } else {
