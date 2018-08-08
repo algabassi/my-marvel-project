@@ -15,18 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-//        print("urlCharacters\(urlCharacters)")
-//
-//        gCharactersRequests.getCharactersList( completionHandler: { (success) -> Void in
-//            if success {
-//                DispatchQueue.main.async(execute: {
-//                    if success {
-//                        flagCharactersListLoadSuccess = true
-//                    }
-//                })
-//            }
-//        })
-
         return true
     }
 

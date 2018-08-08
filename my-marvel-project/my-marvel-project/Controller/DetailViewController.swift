@@ -11,16 +11,22 @@ import WebKit
 
 class DetailViewController: UIViewController {
 
-    var idDetailCard = "0"
     @IBOutlet weak var imgComic: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     
     @IBOutlet weak var txtDescription: UITextView!
-    
+
+    var idDetailCard = "0"
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         DispatchQueue.main.async(execute: {
+            self.activityIndicator.frame = self.view.bounds
+            self.view.addSubview(self.activityIndicator)
+            self.activityIndicator.startAnimating()
+
             self.getMarvelDetailInfo()
         })
         
@@ -46,16 +52,17 @@ extension DetailViewController {
         
         gCharactersRequests.getCharactersDetail(idCharacter: idDetailCard, completionHandler: { (success) -> Void in
             if success {
-                print("DetailViewController: Carrega dados do id:\(self.idDetailCard)")
-
                 if gCharactersComicData.statusComicReturn == "OK" {
                     gCharactersRequests.getCharactersComicItem(urlComicItem:gCharactersComicData.comicUrl!, completionHandler: { (success) -> Void in
                         if success {
                             DispatchQueue.main.async(execute: {
-                                if charactersComicList.charactersComicListArray.count > 0 {
-                                    self.imgComic.image = UIImage(named: gCharactersComicData.thumbnail!)
+                                if charactersComicList.charactersComicListArray.count > 0 {                                    
+                                    let strImageName = gCharactersComicData.thumbnail! + "/standard_fantastic.jpg"
+                                    let url = URL(string: strImageName)
+                                     self.imgComic.kf.setImage(with: url)
                                     self.lblTitle.text = gCharactersComicData.title!
                                     self.txtDescription.text = gCharactersComicData.description!
+                                    self.activityIndicator.removeFromSuperview()
                                 }
                             })
                         }

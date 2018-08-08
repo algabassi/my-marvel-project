@@ -17,6 +17,11 @@ class CharacterTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         nameCharacter.text = "Ironman"
+        
+        // set up your background color view
+        let colorView = UIView()
+        colorView.backgroundColor = UIColor.black
+        self.selectedBackgroundView = colorView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

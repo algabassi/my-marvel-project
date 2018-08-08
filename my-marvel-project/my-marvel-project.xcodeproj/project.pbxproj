@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		051A4C0F211B257B00571C3C /* CharactersComicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051A4C0E211B257A00571C3C /* CharactersComicData.swift */; };
+		051A4C11211B676D00571C3C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 051A4C10211B676D00571C3C /* README.md */; };
 		05651CFF211A815B00D9F4F7 /* Just.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05651CFE211A815B00D9F4F7 /* Just.swift */; };
 		05651D03211A958700D9F4F7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 05651D02211A958700D9F4F7 /* Podfile */; };
 		05651D05211A9C4E00D9F4F7 /* MarvelRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05651D04211A9C4E00D9F4F7 /* MarvelRequests.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		051A4C0E211B257A00571C3C /* CharactersComicData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersComicData.swift; sourceTree = "<group>"; };
+		051A4C10211B676D00571C3C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05651CFE211A815B00D9F4F7 /* Just.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Just.swift; sourceTree = "<group>"; };
 		05651D02211A958700D9F4F7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		05651D04211A9C4E00D9F4F7 /* MarvelRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelRequests.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		059F593A21188A0D0028BBF5 /* my-marvel-project */ = {
 			isa = PBXGroup;
 			children = (
+				051A4C10211B676D00571C3C /* README.md */,
 				05651D09211AE29000D9F4F7 /* CustomView */,
 				059F593B21188A0D0028BBF5 /* AppDelegate.swift */,
 				05BFF2E3211A7EB5004903D8 /* Model */,
@@ -223,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				051A4C11211B676D00571C3C /* README.md in Resources */,
 				059F594621188A0F0028BBF5 /* LaunchScreen.storyboard in Resources */,
 				059F594321188A0F0028BBF5 /* Assets.xcassets in Resources */,
 				05E70490211AFFFE001DF755 /* Main.storyboard in Resources */,
@@ -442,7 +446,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gabassi.my-marvel-project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -461,7 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gabassi.my-marvel-project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -16,16 +16,21 @@ class ViewController: UIViewController {
     @IBOutlet var titleImageView: UIImageView!
     
     var idSelectedChannel : String = ""
-
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async(execute: {            
+            self.lblTitleMessage.text = "Carregando a lista \ndos melhores Personagens do mundo!"
+            self.charactersTableView.isHidden = true
+            self.activityIndicator.frame = self.view.bounds
+            self.view.addSubview(self.activityIndicator)
+            self.activityIndicator.startAnimating()
+            self.getMarvelCharList()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async(execute: {
-            self.lblTitleMessage.text = "Carregando a lista \ndos melhores heróis do mundo!"
-            self.getMarvelCharList()
-        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +48,9 @@ extension ViewController {
                     if success {
                         DispatchQueue.main.async(execute: {
                             self.charactersTableView.reloadData()
-                            self.lblTitleMessage.text = "Selecione um Herói\n para ver os detalhes!"
+                            self.lblTitleMessage.text = "Selecione um Personagem\n para ver os detalhes!"
+                            self.charactersTableView.isHidden = false
+                            self.activityIndicator.removeFromSuperview()
                         })
                     }
                 })
@@ -72,23 +79,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: false)
         idSelectedChannel = "\(charactersList.charactersListArray[indexPath.row].ID ?? 0)" as String
-
-        print("Selecionou o id:\(idSelectedChannel)")
-        
-        
         DispatchQueue.main.async(execute: {
             self.performSegue(withIdentifier: "detailView", sender: self)
         })
-
-//        buscaCanalAtendimento()
-//        else if tableView == canaisChamadoRapidoTableView {
-//            idSelectedChannel = canaisChamadoRapido.listaCanais[indexPath.row].id ?? "0"
-//            dadosCanal = canaisChamadoRapido.listaCanais[indexPath.row]
-//
-//            DispatchQueue.main.async(execute: {
-//                self.performSegue(withIdentifier: "chamado_rapido", sender: self)
-//            })
-//        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,10 +109,8 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
             cellList?.nameCharacter?.text = charactersList.charactersListArray[indexPath.row].name?.uppercased()
             
             let strImageName = charactersList.charactersListArray[indexPath.row].thumbnail! + "/landscape_small.jpg"
-            print("strImageName:\(strImageName)")
-            cellList?.imgCharacter?.image = UIImage(named: charactersList.charactersListArray[indexPath.row].thumbnail!)
-            
-//            portrait_xlarge.jpg
+            let url = URL(string: strImageName)
+            cellList?.imgCharacter.kf.setImage(with: url)
         }
         return cellList!
     }

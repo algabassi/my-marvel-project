@@ -104,15 +104,12 @@ class wsRequests {
                             for (_, charsInfo) in jsonCharsData["data"]["results"] {
                                 
                                 gCharactersComicData = CharactersComicData()
-//                                var dados = CharactersComicData()
-                                
                                 if charsInfo["comics"].exists() {
                                     if charsInfo["comics"]["available"].exists()
                                         && charsInfo["comics"]["available"]>0{
                                         if charsInfo["comics"]["items"].exists() {
                                             for ( index, comicItensInfo) in charsInfo["comics"]["items"] {
                                                 if index == "0" {
-                                                    print("Primeiro Item do Array:\(String(describing: comicItensInfo))")
                                                     gCharactersComicData.comicUrl = comicItensInfo["resourceURI"].object as? String
                                                     gCharactersComicData.statusComicReturn = "OK"
                                                     break
@@ -199,7 +196,6 @@ class wsRequests {
                                 charactersComicList.charactersComicListArray.append(gCharactersComicData)
                             }
                             if charactersComicList.charactersComicListArray.count > 0 {
-                                print("Encontrou o comic:\(gCharactersComicData)")
                                 completionHandler(true)
                             }
                         }
