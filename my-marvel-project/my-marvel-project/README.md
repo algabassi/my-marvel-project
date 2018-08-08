@@ -29,7 +29,7 @@ Framework  JustHTTP :
 Framework Kingfisher:
 
     - Todas as imagens que estão na web são tratadas pelo Framework https://github.com/onevcat/Kingfisher
-    
+    - Tratamento de Cache
     
     
     
