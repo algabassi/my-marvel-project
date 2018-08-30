@@ -12,8 +12,8 @@ import Foundation
 let baseURL = "https://gateway.marvel.com/"
 let urlCharacters = "\(baseURL)v1/public/characters"
 
-let kMarvelDeveloperPublicKey = "e9b7152fc8a86368f93ea7e04cf33f78"
-let kMarvelDeveloperPrivateKey = "98afb987551cd3ee00850971d1f4029f39d68868"
+let kMarvelDeveloperPublicKey = "" 
+let kMarvelDeveloperPrivateKey = ""
 
 var charactersList = Characters.sharedCharacters
 var charactersComicList = CharactersComic.sharedCharacters
