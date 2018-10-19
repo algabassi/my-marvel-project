@@ -1,10 +1,8 @@
 # my-marvel-project
 
-Teste iOS
+Aplicativo iOS
 
 Este aplicativo foi desenvolvido a partir da API da Marvel (https://developer.marvel.com) 
-
-Este projeto foi publicado no GitLab (https://gitlab.com/algabassi/my-marvel-project)
 
 DESCRIÇÃO: 
 
